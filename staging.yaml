@@ -4,3 +4,17 @@
     - nginx
     - mysql
     - php
+
+  tasks:
+    - name: Deploy Hello World PHP page
+      ansible.builtin.copy:
+        content: |
+          <?php
+          $link = mysqli_connect('localhost', '{{ mysql_user }}', '{{ mysql_password }}', '{{ mysql_database }}');
+          if (!$link) {
+              die('Could not connect: ' . mysqli_error());
+          }
+          echo 'Connected successfully';
+          mysqli_close($link);
+          ?>
+        dest: /var/www/html/index.php
