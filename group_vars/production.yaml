@@ -1,0 +1,9 @@
+php:
+  config:
+    error_reporting: 'E_ALL & ~E_DEPRECATED & ~E_STRICT'
+    display_errors: False
+    memory_limit: 256M
+mysql:
+  user: prod_user
+  password: prod_password
+  database: prod_db

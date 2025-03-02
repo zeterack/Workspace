@@ -1,0 +1,22 @@
+- name: Install MySQL
+  ansible.builtin.apt:
+    name: mysql-server
+    state: present
+
+- name: Ensure MySQL is running
+  ansible.builtin.service:
+    name: mysql
+    state: started
+    enabled: true
+
+- name: Create MySQL database
+  mysql_db:
+    name: "{{ mysql.database }}"
+    state: present
+
+- name: Create MySQL user
+  mysql_user:
+    name: "{{ mysql.user }}"
+    password: "{{ mysql.password }}"
+    priv: "{{ mysql.database }}.*:ALL"
+    state: present

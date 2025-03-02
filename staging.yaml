@@ -1,0 +1,6 @@
+- hosts: staging
+  become: true
+  roles:
+    - nginx
+    - mysql
+    - php

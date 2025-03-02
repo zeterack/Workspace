@@ -1,0 +1,9 @@
+php:
+  config:
+    error_reporting: 'E_ALL & ~E_DEPRECATED & ~E_STRICT'
+    display_errors: True
+    memory_limit: 128M
+mysql:
+  user: staging_user
+  password: staging_password
+  database: staging_db
